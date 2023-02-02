@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Customer.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="CustomerStoreContainer">
+    <EntitySet Name="Customers" EntityType="Customer.Store.Customers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CustomerAddresses" EntityType="Customer.Store.CustomerAddresses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Addresses" EntityType="Customer.Store.Addresses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserLogins" EntityType="Customer.Store.UserLogins" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="CustomerCustomerAddress" Association="Customer.Store.CustomerCustomerAddress">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
+    </AssociationSet>
+    <AssociationSet Name="AddressCustomerAddress" Association="Customer.Store.AddressCustomerAddress">
+      <End Role="Address" EntitySet="Addresses" />
+      <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameStyle" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SalesPerson" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EmailAddress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CustomerAddresses">
+    <Key>
+      <PropertyRef Name="CustomerCustomerID" />
+      <PropertyRef Name="AddressAddressID" />
+    </Key>
+    <Property Name="AddressType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ModifiedDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CustomerCustomerID" Type="int" Nullable="false" />
+    <Property Name="AddressAddressID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Addresses">
+    <Key>
+      <PropertyRef Name="AddressID" />
+    </Key>
+    <Property Name="AddressID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AddressLine1" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AddressLine2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="City" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StateProvince" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CountryRegion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PostalCode" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserLogins">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Department" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PhoneNr" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="CustomerCustomerAddress">
+    <End Role="Customer" Type="Customer.Store.Customers" Multiplicity="1" />
+    <End Role="CustomerAddress" Type="Customer.Store.CustomerAddresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="CustomerAddress">
+        <PropertyRef Name="CustomerCustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AddressCustomerAddress">
+    <End Role="Address" Type="Customer.Store.Addresses" Multiplicity="1" />
+    <End Role="CustomerAddress" Type="Customer.Store.CustomerAddresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="AddressID" />
+      </Principal>
+      <Dependent Role="CustomerAddress">
+        <PropertyRef Name="AddressAddressID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

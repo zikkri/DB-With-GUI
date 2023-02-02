@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Customer" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="CustomerContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Customers" EntityType="Customer.Customer" />
+    <EntitySet Name="CustomerAddresses" EntityType="Customer.CustomerAddress" />
+    <EntitySet Name="Addresses" EntityType="Customer.Address" />
+    <EntitySet Name="UserLogins" EntityType="Customer.UserLogin" />
+    <AssociationSet Name="CustomerCustomerAddress" Association="Customer.CustomerCustomerAddress">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
+    </AssociationSet>
+    <AssociationSet Name="AddressCustomerAddress" Association="Customer.AddressCustomerAddress">
+      <End Role="Address" EntitySet="Addresses" />
+      <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameStyle" Type="String" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" />
+    <Property Name="MiddleName" Type="String" Nullable="false" />
+    <Property Name="LastName" Type="String" Nullable="false" />
+    <Property Name="CompanyName" Type="String" Nullable="false" />
+    <Property Name="SalesPerson" Type="String" Nullable="false" />
+    <Property Name="EmailAddress" Type="String" Nullable="false" />
+    <Property Name="Phone" Type="String" Nullable="false" />
+    <Property Name="Password" Type="String" Nullable="false" />
+    <NavigationProperty Name="CustomerAddresses" Relationship="Customer.CustomerCustomerAddress" FromRole="Customer" ToRole="CustomerAddress" />
+  </EntityType>
+  <EntityType Name="CustomerAddress">
+    <Key>
+      <PropertyRef Name="CustomerCustomerID" />
+      <PropertyRef Name="AddressAddressID" />
+    </Key>
+    <Property Name="AddressType" Type="String" Nullable="false" />
+    <Property Name="ModifiedDate" Type="String" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="Customer.CustomerCustomerAddress" FromRole="CustomerAddress" ToRole="Customer" />
+    <Property Name="CustomerCustomerID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Address" Relationship="Customer.AddressCustomerAddress" FromRole="CustomerAddress" ToRole="Address" />
+    <Property Name="AddressAddressID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="AddressID" />
+    </Key>
+    <Property Name="AddressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AddressLine1" Type="String" Nullable="false" />
+    <Property Name="AddressLine2" Type="String" Nullable="false" />
+    <Property Name="City" Type="String" Nullable="false" />
+    <Property Name="StateProvince" Type="String" Nullable="false" />
+    <Property Name="CountryRegion" Type="String" Nullable="false" />
+    <Property Name="PostalCode" Type="String" Nullable="false" />
+    <NavigationProperty Name="CustomerAddresses" Relationship="Customer.AddressCustomerAddress" FromRole="Address" ToRole="CustomerAddress" />
+  </EntityType>
+  <EntityType Name="UserLogin">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" />
+    <Property Name="LastName" Type="String" Nullable="false" />
+    <Property Name="Department" Type="String" Nullable="false" />
+    <Property Name="PhoneNr" Type="String" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" />
+    <Property Name="Password" Type="String" Nullable="false" />
+  </EntityType>
+  <Association Name="CustomerCustomerAddress">
+    <End Type="Customer.Customer" Role="Customer" Multiplicity="1" />
+    <End Type="Customer.CustomerAddress" Role="CustomerAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="CustomerAddress">
+        <PropertyRef Name="CustomerCustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AddressCustomerAddress">
+    <End Type="Customer.Address" Role="Address" Multiplicity="1" />
+    <End Type="Customer.CustomerAddress" Role="CustomerAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="AddressID" />
+      </Principal>
+      <Dependent Role="CustomerAddress">
+        <PropertyRef Name="AddressAddressID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

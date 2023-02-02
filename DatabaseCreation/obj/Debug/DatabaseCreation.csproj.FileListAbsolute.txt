@@ -1,0 +1,13 @@
+C:\Users\zbowk\OneDrive\Desktop\School\Semester4\COMP212\Labs\Lab4\ZackBowker-COMP212-Lab4\DatabaseCreation\bin\Debug\DatabaseCreation.exe.config
+C:\Users\zbowk\OneDrive\Desktop\School\Semester4\COMP212\Labs\Lab4\ZackBowker-COMP212-Lab4\DatabaseCreation\bin\Debug\DatabaseCreation.exe
+C:\Users\zbowk\OneDrive\Desktop\School\Semester4\COMP212\Labs\Lab4\ZackBowker-COMP212-Lab4\DatabaseCreation\bin\Debug\DatabaseCreation.pdb
+C:\Users\zbowk\OneDrive\Desktop\School\Semester4\COMP212\Labs\Lab4\ZackBowker-COMP212-Lab4\DatabaseCreation\bin\Debug\EntityFramework.dll
+C:\Users\zbowk\OneDrive\Desktop\School\Semester4\COMP212\Labs\Lab4\ZackBowker-COMP212-Lab4\DatabaseCreation\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\zbowk\OneDrive\Desktop\School\Semester4\COMP212\Labs\Lab4\ZackBowker-COMP212-Lab4\DatabaseCreation\bin\Debug\EntityFramework.xml
+C:\Users\zbowk\OneDrive\Desktop\School\Semester4\COMP212\Labs\Lab4\ZackBowker-COMP212-Lab4\DatabaseCreation\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\zbowk\OneDrive\Desktop\School\Semester4\COMP212\Labs\Lab4\ZackBowker-COMP212-Lab4\DatabaseCreation\obj\Debug\DatabaseCreation.csproj.AssemblyReference.cache
+C:\Users\zbowk\OneDrive\Desktop\School\Semester4\COMP212\Labs\Lab4\ZackBowker-COMP212-Lab4\DatabaseCreation\obj\Debug\DatabaseCreation.csproj.SuggestedBindingRedirects.cache
+C:\Users\zbowk\OneDrive\Desktop\School\Semester4\COMP212\Labs\Lab4\ZackBowker-COMP212-Lab4\DatabaseCreation\obj\Debug\DatabaseCreation.csproj.CoreCompileInputs.cache
+C:\Users\zbowk\OneDrive\Desktop\School\Semester4\COMP212\Labs\Lab4\ZackBowker-COMP212-Lab4\DatabaseCreation\obj\Debug\DatabaseCreation.csproj.CopyComplete
+C:\Users\zbowk\OneDrive\Desktop\School\Semester4\COMP212\Labs\Lab4\ZackBowker-COMP212-Lab4\DatabaseCreation\obj\Debug\DatabaseCreation.exe
+C:\Users\zbowk\OneDrive\Desktop\School\Semester4\COMP212\Labs\Lab4\ZackBowker-COMP212-Lab4\DatabaseCreation\obj\Debug\DatabaseCreation.pdb
